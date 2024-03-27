@@ -14,6 +14,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Dumping database structure for tasks-db
+CREATE DATABASE IF NOT EXISTS `tasks-db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `tasks-db`;
+
 -- Dumping structure for table tasks-db.tasks
 CREATE TABLE IF NOT EXISTS `tasks` (
   `task_id` int NOT NULL AUTO_INCREMENT,
@@ -41,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table tasks-db.users: ~3 rows (approximately)
+-- Dumping data for table tasks-db.users: ~7 rows (approximately)
 INSERT INTO `users` (`user_id`, `username`) VALUES
 	(1, 'vsalfafara'),
 	(2, 'gregorio'),
