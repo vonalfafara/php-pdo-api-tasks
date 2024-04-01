@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `user_id` int NOT NULL,
   PRIMARY KEY (`task_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Dumping data for table tasks-db.tasks: ~6 rows (approximately)
 INSERT INTO `tasks` (`task_id`, `task_title`, `task_description`, `task_status`, `user_id`) VALUES
@@ -37,16 +37,17 @@ INSERT INTO `tasks` (`task_id`, `task_title`, `task_description`, `task_status`,
 	(6, 'Teach class', NULL, 'Not Started', 4),
 	(7, 'Teach PDO', 'Teach PDO to WD98 in the context of OOP', 'Not Started', 1),
 	(10, 'Take a break', 'Order Jollibee', 'Completed', 1),
-	(11, 'Go to Japan', 'Osaka to Tokyo', 'Ongoing', 1);
+	(11, 'Go to Japan', 'Osaka to Tokyo', 'Completed', 1),
+	(12, 'Play guitar', 'Songs:\nHarana\nSelos\nPerfect\nTime in a bottle', 'Not Started', 3);
 
 -- Dumping structure for table tasks-db.users
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table tasks-db.users: ~7 rows (approximately)
+-- Dumping data for table tasks-db.users: ~9 rows (approximately)
 INSERT INTO `users` (`user_id`, `username`) VALUES
 	(1, 'vsalfafara'),
 	(2, 'gregorio'),
@@ -54,7 +55,12 @@ INSERT INTO `users` (`user_id`, `username`) VALUES
 	(4, 'chi'),
 	(5, 'jdelacruz'),
 	(6, 'mar_manzano'),
-	(7, 'rexie_manito');
+	(7, 'rexie_manito'),
+	(8, 'princess'),
+	(9, 'cris'),
+	(15, 'argie'),
+	(16, 'madara'),
+	(17, 'hashirama');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
