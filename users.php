@@ -29,16 +29,13 @@ if ($method === "GET") {
     echo json_encode($result, JSON_PRETTY_PRINT);
   }
 } else if ($method === "POST") {
+  $_POST = json_decode(file_get_contents('php://input'), true);
   $query = "INSERT INTO users (username) VALUES (:username)";
   $db->ready($query, [
     "username" => $_POST["username"]
   ]);
-  $id = $db->connection->lastInsertId();
-  $query = "SELECT * FROM users where user_id = :user_id";
-  $stmt = $db->ready($query, [
-    "user_id" => $id
-  ]);
-  $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
-  $result = $stmt->fetch();
-  echo json_encode($result, JSON_PRETTY_PRINT);
+  $username = $_POST["username"];
+  echo json_encode([
+    "message" => "User $username has been created"
+  ], JSON_PRETTY_PRINT);
 }

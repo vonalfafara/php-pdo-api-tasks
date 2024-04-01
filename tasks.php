@@ -33,6 +33,7 @@ if ($method === "GET") {
     echo json_encode($result, JSON_PRETTY_PRINT);
   }
 } else if ($method === "POST") {
+  $_POST = json_decode(file_get_contents('php://input'), true);
   $query = "INSERT INTO tasks (task_title, task_description, user_id) VALUES (:task_title, :task_description, :user_id)";
   $db->ready($query, [
     "task_title" => $_POST["task_title"],
@@ -43,13 +44,13 @@ if ($method === "GET") {
     "message" => "Data inserted"
   ], JSON_PRETTY_PRINT);
 } else if ($method === "PUT") {
-  parse_str(file_get_contents('php://input'), $post_input);
+  $_PUT = json_decode(file_get_contents('php://input'), true);
   $query = "UPDATE tasks SET task_title = :task_title, task_description = :task_description, task_status = :task_status
   WHERE task_id = :task_id";
   $db->ready($query, [
-    "task_title" => $post_input["task_title"],
-    "task_description" => $post_input["task_description"],
-    "task_status" => $post_input["task_status"],
+    "task_title" => $_PUT["task_title"],
+    "task_description" => $_PUT["task_description"],
+    "task_status" => $_PUT["task_status"],
     "task_id" => $_GET["task_id"],
   ]);
   echo json_encode([
